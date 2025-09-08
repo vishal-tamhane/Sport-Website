@@ -34,35 +34,182 @@ const Header = () => {
 
   return (
     <div id="header" className="pb-1 mb-1">
-      <nav className={`fixed top-0 w-full z-[1000] transition-all duration-600 ${
-        scrolled ? 'bg-transparent backdrop-blur-md py-2.5 px-5' : 'bg-transparent py-5 px-10'
-      }`}>
-        <Link to="/" className="no-underline">
-          <p className={`transition-all duration-300 ${
-            scrolled ? 'text-[35px]' : 'text-[45px]'
-          } font-medium text-[#103d01] font-['Trebuchet_MS',_'Lucida_Sans_Unicode',_'Lucida_Grande',_'Lucida_Sans',_Arial,_sans-serif]`}>
-            SPORT Club
-          </p>
-        </Link>
-        <ul 
-          id="sidemenu" 
-          className={`${menuOpen ? 'right-0' : 'right-[-200px]'} md:static fixed top-0 w-[200px] md:w-auto h-[50vh] md:h-auto bg-[#017979] md:bg-transparent pt-[50px] md:pt-0 transition-all duration-500 z-[2] md:flex`}
+      <nav
+        className={`fixed top-0 w-full z-[1000] transition-all duration-600 ${
+          scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+        }`}
+      >
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center">
+            {/* Logo */}
+            <Link to="/" className="no-underline">
+              <p
+                className={`transition-all duration-300 ${
+                  scrolled ? 'text-3xl' : 'text-4xl'
+                } font-medium text-[#103d01] font-['Trebuchet_MS',_'Lucida_Sans_Unicode',_'Lucida_Grande',_'Lucida_Sans',_Arial,_sans-serif]`}
+              >
+                SPORT Club
+              </p>
+            </Link>
+
+            {/* Desktop Navigation */}
+<div className="hidden md:block">
+  <ul className="flex gap-8">
+    <li>
+      <Link
+        to="/home"
+        className="nav-link text-lg font-medium hover:text-[#017979] transition-colors"
+      >
+        Home
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/updates"
+        className="nav-link text-lg font-medium hover:text-[#017979] transition-colors"
+      >
+        Updates
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/login"
+        className="nav-link text-lg font-medium hover:text-[#017979] transition-colors"
+      >
+        Registration
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/sports"
+        className="nav-link text-lg font-medium hover:text-[#017979] transition-colors"
+      >
+        Sports
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/gallery"
+        className="nav-link text-lg font-medium hover:text-[#017979] transition-colors"
+      >
+        Gallery
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/members"
+        className="nav-link text-lg font-medium hover:text-[#017979] transition-colors"
+      >
+        Members
+      </Link>
+    </li>
+  </ul>
+</div>
+
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden text-[#103d01] focus:outline-none"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div
+          className={`md:hidden fixed inset-0 bg-white z-[1001] transform transition-transform duration-300 ease-in-out ${
+            menuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
         >
-          <li className="md:inline-block block md:mx-5 my-2.5 md:my-0 mx-6"><Link to="/home" className="nav-link">Home</Link></li>
-          <li className="md:inline-block block md:mx-5 my-2.5 md:my-0 mx-6"><Link to="/updates" className="nav-link">Updates</Link></li>
-          <li className="md:inline-block block md:mx-5 my-2.5 md:my-0 mx-6"><Link to="/login" className="nav-link">Registration</Link></li>
-          <li className="md:inline-block block md:mx-5 my-2.5 md:my-0 mx-6"><Link to="/sports" className="nav-link">Sports</Link></li>
-          <li className="md:inline-block block md:mx-5 my-2.5 md:my-0 mx-6"><Link to="/gallery" className="nav-link">Gallery</Link></li>
-          <li className="md:inline-block block md:mx-5 my-2.5 md:my-0 mx-6"><Link to="/members" className="nav-link">Members</Link></li>
-          <i 
-            className="fas-icons fa-solid fa-rectangle-xmark absolute top-6 left-6 cursor-pointer md:hidden"
-            onClick={toggleMenu}
-          ></i>
-        </ul>
-        <i 
-          className="fas-icons fa-solid fa-bars text-2xl md:hidden cursor-pointer" 
-          onClick={toggleMenu}
-        ></i>
+          <div className="flex justify-end p-4">
+            <button
+              className="text-[#103d01] focus:outline-none"
+              onClick={toggleMenu}
+              aria-label="Close menu"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div className="flex flex-col items-center justify-center h-[80vh]">
+            <ul className="flex flex-col space-y-6 text-center text-[#103d01]">
+              <li>
+                <Link
+                  to="/home"
+                  className="text-2xl font-medium hover:text-[#017979]"
+                  onClick={toggleMenu}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/updates"
+                  className="text-2xl font-medium hover:text-[#017979]"
+                  onClick={toggleMenu}
+                >
+                  Updates
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/login"
+                  className="text-2xl font-medium hover:text-[#017979]"
+                  onClick={toggleMenu}
+                >
+                  Registration
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sports"
+                  className="text-2xl font-medium hover:text-[#017979]"
+                  onClick={toggleMenu}
+                >
+                  Sports
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/gallery"
+                  className="text-2xl font-medium hover:text-[#017979]"
+                  onClick={toggleMenu}
+                >
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/members"
+                  className="text-2xl font-medium hover:text-[#017979]"
+                  onClick={toggleMenu}
+                >
+                  Members
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </div>
   );
