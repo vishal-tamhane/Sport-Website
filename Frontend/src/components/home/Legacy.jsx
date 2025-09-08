@@ -44,36 +44,36 @@ const AnimatedCounter = ({ targetNumber, className }) => {
 const Legacy = () => {
   return (
     <section>
-      <div className="container mx-auto px-4 border-t-4 border-black bg-[#e2ecf7] shadow-[0_0_150px_#e2ecf7] w-full py-12 md:py-16 lg:py-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-center gap-8">
+      <div className="mt-4 container mx-auto px-4 border-t-4 border-black bg-[#e2ecf7] shadow-[0_0_150px_#e2ecf7] w-full py-12 md:py-16 lg:py-24">
+        <div className="pt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-center gap-8">
           <div className="py-8 md:py-12 lg:py-16">
-            <h3 className="text-5xl md:text-7xl lg:text-9xl font-extrabold pb-2 md:pb-4 font-['Roboto_Slab',_serif]">
+            <h3 className="text-7xl md:text-7xl lg:text-9xl font-extrabold pb-2 md:pb-4 font-['Roboto_Slab',_serif]">
               <AnimatedCounter 
                 targetNumber={6} 
-                className="text-xl font-semibold md:text-2xl lg:text-3xl text-black" 
+                className="text-2xl font-bold md:text-3xl lg:text-4xl text-black" 
               />
             </h3>
-            <p className="text-black font-['Roboto_Slab',_serif]">Events organized</p>
+            <p className="text-lg md:text-xl lg:text-2xl  text-black font-['Roboto_Slab',_serif]">Events organized</p>
           </div>
           
           <div className="py-8 md:py-12 lg:py-16">
-            <h3 className="text-5xl md:text-7xl lg:text-9xl font-extrabold pb-2 md:pb-4 font-['Roboto_Slab',_serif]">
+            <h3 className="text-7xl md:text-8xl lg:text-10xl font-extrabold pb-2 md:pb-4 font-['Roboto_Slab',_serif]">
               <AnimatedCounter 
                 targetNumber={29} 
-                className="text-xl font-semibold md:text-2xl lg:text-3xl text-black" 
+                className="text-2xl font-bold md:text-3xl lg:text-4xl text-black" 
               />
             </h3>
-            <p className="text-black font-['Roboto_Slab',_serif]">Participants up to now</p>
+            <p className="text-lg md:text-xl lg:text-2xl  text-black font-['Roboto_Slab',_serif]">Participants up to now</p>
           </div>
           
           <div className="py-8 md:py-12 lg:py-16 sm:col-span-2 lg:col-span-1">
-            <h3 className="pb-2 md:pb-4 font-['Roboto_Slab',_serif]">
+            <h3 className="text-7xl md:text-8xl lg:text-9xl font-extrabold pb-2 md:pb-4 font-['Roboto_Slab',_serif]">
               <AnimatedCounter 
                 targetNumber={56} 
-                className="text-xl font-semibold md:text-2xl lg:text-3xl text-black" 
+                className="text-2xl font-bold md:text-3xl lg:text-4xl text-black" 
               />
             </h3>
-            <p className="text-black font-['Roboto_Slab',_serif]">Members of Parakram</p>
+            <p className="text-lg md:text-xl lg:text-2xl  text-black font-['Roboto_Slab',_serif]">Members of Parakram</p>
           </div>
         </div>
       </div>
@@ -82,3 +82,4 @@ const Legacy = () => {
 };
 
 export default Legacy
+
