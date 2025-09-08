@@ -1,27 +1,79 @@
+import { useState, useEffect, useRef } from 'react';
+
+const AnimatedCounter = ({ targetNumber, className }) => {
+  const [count, setCount] = useState(0);
+  const counterRef = useRef(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasAnimated.current) {
+        hasAnimated.current = true;
+        let start = 0;
+        const duration = 1500; // animation duration in ms
+        const step = timestamp => {
+          if (!start) start = timestamp;
+          const progress = Math.min((timestamp - start) / duration, 1);
+          setCount(Math.floor(progress * targetNumber));
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+    }, { threshold: 0.1 });
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    return () => {
+      if (counterRef.current) {
+        observer.unobserve(counterRef.current);
+      }
+    };
+  }, [targetNumber]);
+
+  return (
+    <span ref={counterRef} className={className}>
+      {count} +
+    </span>
+  );
+};
+
 const Legacy = () => {
   return (
     <section>
-      <div className="container mx-auto px-4 border-t border-black bg-[#e2ecf7] shadow-[0_0_100px_#e2ecf7] w-full">
-        <div className="grid grid-cols-1 md:grid-cols-3 text-center">
-          <div className="py-12">
-            <h3 className="text-7xl font-medium pb-2" style={{fontWeight: 650}}>
-              <div><span>6</span>+</div>
+      <div className="container mx-auto px-4 border-t-4 border-black bg-[#e2ecf7] shadow-[0_0_150px_#e2ecf7] w-full py-12 md:py-16 lg:py-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-center gap-8">
+          <div className="py-8 md:py-12 lg:py-16">
+            <h3 className="text-5xl md:text-7xl lg:text-9xl font-extrabold pb-2 md:pb-4 font-['Roboto_Slab',_serif]">
+              <AnimatedCounter 
+                targetNumber={6} 
+                className="text-xl font-semibold md:text-2xl lg:text-3xl text-black" 
+              />
             </h3>
-            <p className="text-black">Events organized</p>
+            <p className="text-black font-['Roboto_Slab',_serif]">Events organized</p>
           </div>
           
-          <div className="py-12">
-            <h3 className="text-7xl font-medium pb-2" style={{fontWeight: 650}}>
-              <div><span>29</span>+</div>
+          <div className="py-8 md:py-12 lg:py-16">
+            <h3 className="text-5xl md:text-7xl lg:text-9xl font-extrabold pb-2 md:pb-4 font-['Roboto_Slab',_serif]">
+              <AnimatedCounter 
+                targetNumber={29} 
+                className="text-xl font-semibold md:text-2xl lg:text-3xl text-black" 
+              />
             </h3>
-            <p className="text-black">Participants up to now</p>
+            <p className="text-black font-['Roboto_Slab',_serif]">Participants up to now</p>
           </div>
           
-          <div className="py-12">
-            <h3 className="text-7xl font-medium pb-2" style={{fontWeight: 650}}>
-              <div><span>56</span>+</div>
+          <div className="py-8 md:py-12 lg:py-16 sm:col-span-2 lg:col-span-1">
+            <h3 className="pb-2 md:pb-4 font-['Roboto_Slab',_serif]">
+              <AnimatedCounter 
+                targetNumber={56} 
+                className="text-xl font-semibold md:text-2xl lg:text-3xl text-black" 
+              />
             </h3>
-            <p className="text-black">Members of Parakram</p>
+            <p className="text-black font-['Roboto_Slab',_serif]">Members of Parakram</p>
           </div>
         </div>
       </div>
@@ -29,4 +81,4 @@ const Legacy = () => {
   );
 };
 
-export default Legacy;
+export default Legacy
