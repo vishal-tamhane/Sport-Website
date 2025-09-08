@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>President Dashboard</title>
+</head>
+<body>
+    <h1>President's Portal - Department-wise Registrations</h1>
+
+    <% Object.keys(registrationsByDept).forEach(department => { %>
+        <h2>Department: <%= department %></h2>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Student Name</th>
+                <th>Sport</th>
+                <th>Registered By</th>
+            </tr>
+            <% registrationsByDept[department].forEach(reg => { %>
+            <tr>
+                <td><%= reg.id %></td>
+                <td><%= reg.student_name %></td>
+                <td><%= reg.sport %></td>
+                <td><%= reg.registered_by %></td>
+            </tr>
+            <% }); %>
+        </table>
+    <% }); %>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<%- include('./partials/header.ejs') %> <!-- Include the header.ejs file -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    /* Dashboard container styling */
+    .dashboard-container {
+      background-color: #5fe2d2;
+      color: rgb(7, 7, 7);
+      padding: 10px;
+      border-radius: 15px;
+      width: 95%;
+      max-width: 1300px;
+      margin: 30px auto; /* Center the container */
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .dashboard-container h1 {
+      margin-bottom: 20px;
+    }
+
+    /* Action buttons */
+    .actions {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .actions .button {
+      background-color: #6391ec;
+      color: rgb(6, 6, 6);
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .actions .button:hover {
+      background-color: #daf195;
+    }
+
+    .actions .button.logout {
+      background-color: red;
+    }
+
+    /* Table styling */
+    .dashboard-container table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .dashboard-container th, 
+    .dashboard-container td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .dashboard-container th {
+      background-color: #ffffff;
+      color: green;
+      font-weight: bold;
+    }
+
+    .dashboard-container td {
+      background-color: #e9ffe6;
+      color: black;
+    }
+
+    /* Pagination styling */
+    .pagination {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .pagination a {
+      color: white;
+      background-color: #007BFF;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+
+    .pagination a:hover {
+      background-color: #55a0ea;
+    }
+
+    .pagination span {
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <h1>Hello Coordinator</h1>
+    <div class="actions">
+      <a href="/registrations" class="button">Add Student</a>
+      <a href="/" class="button logout">Logout</a>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Sport</th>
+          <th>Actions</th>
+          <th>Delete</th> <!-- New column for delete option -->
+        </tr>
+      </thead>
+      <tbody>
+        <% if (registrations.length === 0) { %>
+          <tr>
+            <td colspan="5">No registrations available.</td>
+          </tr>
+        <% } else { %>
+          <% registrations.forEach(reg => { %>
+            <tr>
+              <td><%= reg.id %></td>
+              <td><%= reg.name %></td>
+              <td><%= reg.sport %></td>
+              <td><a href="/admin/registration/<%= reg.id %>" class="button">View & Print</a></td>
+              <td>
+                <form action="/admin/registration/<%= reg.id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are you sure you want to delete this entry?');">
+                  <button type="submit" class="button">Delete</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        <% } %>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <% if (currentPage > 1) { %>
+        <a href="?page=<%= currentPage - 1 %>">Previous</a>
+      <% } %>
+      <span>Page <%= currentPage %> of <%= totalPages %></span>
+      <% if (currentPage < totalPages) { %>
+        <a href="?page=<%= currentPage + 1 %>">Next</a>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

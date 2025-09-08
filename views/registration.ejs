@@ -1,0 +1,136 @@
+<%- include('./partials/header.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    /* General Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      color: #333333;
+      padding: 0;
+      background-color: #9d9f9d;
+    }
+
+    /* Form container for centering */
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100%;
+      margin-top: 80px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Form Box Styling */
+    .registration-form-box {
+      background-color: #5fe2d2;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      box-sizing: border-box;
+      margin-top: 20px;
+    }
+
+    /* Form Elements */
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select, button {
+      margin-top: 5px;
+      padding: 8px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: #f1c123;
+      color: #0b0b0b;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ebfd9b;
+    }
+
+    /* Responsive Design for smaller screens */
+    @media (max-width: 768px) {
+      .form-container {
+        justify-content: center;
+        margin-top: 60px; /* Adjust top margin on smaller screens */
+      }
+
+      .registration-form-box {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .registration-form-box {
+        width: 100%;
+        padding: 15px;
+      }
+
+      label, input, select, button {
+        font-size: 14px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <div class="registration-form-box">
+      <h1>Registration Form</h1>
+      <form action="/register" method="POST" enctype="multipart/form-data">
+        <label>Name:</label>
+        <input type="text" name="name" required>
+
+        <label>Date of Birth:</label>
+        <input type="date" name="dob" required>
+
+        <label>PRN Number:</label>
+        <input type="text" name="prn_number" required>
+
+        <label>Eligibility Number:</label>
+        <input type="text" name="eligibility_number" required>
+
+        <label>Sport:</label>
+        <select name="sport" required>
+          <option value="Football">Football</option>
+          <option value="Basketball">Basketball</option>
+          <option value="Basketball">cricket</option>
+          <option value="Basketball">table ta</option>
+          <option value="Basketball">volleyball</option>
+          <option value="Basketball">carrom</option>
+          <option value="Basketball">throball</option>
+          <option value="Basketball">fun</option>
+          <option value="Basketball">puzzle</option>
+          <option value="Basketball">kabaddi</option>
+          <option value="Basketball">kho kho</option>
+          <option value="Basketball">Basketball</option>
+
+        </select>
+
+        <label>Photo:</label>
+        <input type="file" name="photo" accept="image/*" required>
+
+        <label>Aadhar Card Photo:</label>
+        <input type="file" name="adhar_card_photo" accept="image/*" required>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

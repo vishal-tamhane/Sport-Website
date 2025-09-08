@@ -1,0 +1,50 @@
+<%- include('./partials/header.ejs') %>
+
+
+<div class="container sport-container my-5">
+    <h1 class="text-center text-primary mb-4 subtitle"> Our Sports</h1>
+
+    <!-- Indoor Sports Section -->
+    <div class="category mb-5">
+        <h2 class="text-secondary border-bottom pb-2 ">Indoor Sports</h2>
+        <div class="row">
+            <% if (indoorSports && indoorSports.length > 0) { %>
+                <% indoorSports.forEach(function(sport) { %>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="<%= sport.image_url %>" alt="<%= sport.name %>" class="card-img-top" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= sport.name %></h5>
+                                <p class="card-text"><%= sport.description %></p>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p class="text-center text-danger">No indoor sports available.</p>
+            <% } %>
+        </div>
+    </div>
+
+    <!-- Outdoor Sports Section -->
+    <div class="category">
+        <h2 class="text-secondary border-bottom pb-2">Outdoor Sports</h2>
+        <div class="row">
+            <% if (outdoorSports && outdoorSports.length > 0) { %>
+                <% outdoorSports.forEach(function(sport) { %>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="<%= sport.image_url %>" alt="<%= sport.name %>" class="card-img-top" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= sport.name %></h5>
+                                <p class="card-text"><%= sport.description %></p>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p class="text-center text-danger">No outdoor sports available.</p>
+            <% } %>
+        </div>
+    </div>
+</div>

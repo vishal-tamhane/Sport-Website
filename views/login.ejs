@@ -1,0 +1,79 @@
+<%- include('./partials/header.ejs') %> <!-- Include the header.ejs file -->
+
+<style>
+  /* Scoping styles to the login-container */
+  .login-container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    margin: 0;
+    background-color: #FBF8EF; /* Optional background for the page */
+    font-family: Arial, sans-serif;
+  }
+
+  .login-container {
+    background-color: #78B3CE;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+    width: 500px;
+  }
+
+  .login-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between form elements */
+  }
+
+  .login-container label {
+    font-weight: bold;
+    border-radius: 30px;
+    margin-bottom: 7px;
+  }
+
+  .login-container input {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+  
+  }
+
+  .login-container button {
+    background-color: #F96E2A;
+    color: rgb(0, 6, 0);
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .login-container button:hover {
+    background-color: #C9E6F0;
+    box-shadow: #F96E2A 0 0 10px;
+  }
+</style>
+
+<div class="login-container-wrapper">
+  <div class="login-container">
+    <h1 style="color: #F96E2A;">Login</h1>
+    <form action="/login" method="POST">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>

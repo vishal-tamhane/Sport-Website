@@ -1,0 +1,29 @@
+<%- include('./partials/header.ejs'); -%>
+<style>
+  body {
+  background-color: black;
+  color: white; 
+}
+</style>
+<div class="row justify-content-center">
+  <% gallery.forEach(item => { %>
+    <div class="col-lg-4 col-md-6 col-sm-12 p-3">
+      <div class="gallery-item card-effect">
+        <div class="gallery-photo">
+          <img src="<%= item.photo %>" alt="<%= item.name %>" class="img-fluid rounded">
+          
+          <div class="gallery-description" id="desc-<%= item.id %>">
+            <p><%= item.description %></p>
+          </div>
+        </div>
+        
+        <div class="gallery-name text-center mt-2">
+          <p><%= item.name %></p>
+        </div>
+      </div>
+    </div>
+  <% }); %>
+</div>
+
+<%- include('./partials/footer.ejs'); -%>
+

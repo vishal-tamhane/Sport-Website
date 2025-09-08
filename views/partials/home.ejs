@@ -1,0 +1,144 @@
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  .background {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    overflow: hidden;
+  }
+
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
+
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+  }
+
+  .content h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  }
+
+  .content p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  @media screen and (max-width: 770px) {
+    .background-video {
+      object-fit: contain;
+      width: 100%;
+      height: 100%; 
+    }
+
+    .content h1 {
+      font-size: 2rem; 
+    }
+
+    .content p {
+      font-size: 1rem; 
+    }
+  }
+</style>
+
+
+<div class="background" id="about">
+  <video class="background-video" autoplay loop muted playsinline>
+    <source src="/assets/photos/b2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="content">
+    <h1 class="shadow subtitle text-info">Sport Club</h1>
+    <p>Sport Club: Where Passion Meets Play!</p>
+  </div>
+</div>
+
+<!-- About Parakram -->
+<div class="text-info px-4 py-3 w-100 text-center custom-bg">
+  <div class="container px-4 py-3" id="custom-cards">
+    <h2 class="pb-2 border-bottom blurred-bg text-danger fw-bold p-3 rounded">What We Stand For</h2>
+
+    <div class="row g-4 py-3">
+      <!-- Left Column -->
+      <div class="col-12 col-md-6">
+        <div class="card card-cover h-100 overflow-hidden  rounded-4 shadow-lg"
+          style="background-color: transparent;  background-color: rgba(240, 239, 239, 0.9);">
+          <div class="d-flex flex-column h-100 p-4 pb-2 text-white text-shadow-1">
+            <h1 class="pt-1 mt-2 mb-3 display-6 lh-1 fw-bolder text-info">About Us</h1>
+            <Parakram class="mb-3 text-secondary fw-bolder">Parakram Club is a vibrant hub for sports enthusiasts, offering a range of indoor and outdoor activities to promote fitness, teamwork, and sportsmanship. We unite individuals to participate in friendly yet competitive events, fostering unity, determination, and excellence. Our goal is to nurture talent and create champions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-12 col-md-6 d-none d-md-block about-right">
+        <div class="card card-cover h-100 overflow-hidden  rounded-4 shadow-lg"
+          style="background-color: transparent;   background-color: rgba(240, 239, 239, 0.9);">
+          <div class="d-flex flex-column h-100 p-5 pb-2 text-white text-shadow-1">
+            <h1 class="pt-1 mt-22 mb-3 display-6 lh-1 fw-bolder text-info ">Vision
+
+            </h1>
+            <p class="mb-3 text-secondary fw-bolder">Parakram Club inspires individuals to achieve their potential through sports,
+              fostering excellence, teamwork, and discipline. We aim to become a leading club known for developing
+              champions and promoting a healthy lifestyle. Our mission is to organize inclusive events, provide a
+              platform for athletes, encourage fair play, and promote overall well-being.
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Content -->
+
+</div>
+
+<!-- Upcoming Events Section -->
+<section id="upcoming-events">
+  <div class="container">
+    <h2 class="subtitle">Upcoming </h2><h2>ℙ𝕒𝕣𝕒𝕜𝕣𝕒𝕞 𝟚𝟘𝟚𝟝</h2> 
+    <div class="events-list">
+      <div class="event-card">
+        <h3>Indoor Games</h3>
+        <p><strong>Date:</strong> 2025-02-15</p>
+        <p><strong>Location:</strong> Parakram Stadium</p>
+        <p>Loading...</p>
+      </div>
+      <div class="event-card">
+        <h3>Outdoor Games</h3>
+        <p><strong>Date:</strong> 2025-03-10</p>
+        <p><strong>Location:</strong> Parakram Club Hall</p>
+        <p>Coming Soon...</p>
+      </div>
+      <div class="event-card">
+        <h3>Table Tennis Championship</h3>
+        <p><strong>Date:</strong> 2025-03-10</p>
+        <p><strong>Location:</strong> Parakram Club Hall</p>
+        <p>Coming Soon...</p>
+      </div>
+      <!-- Add more events here -->
+    </div>
+  </div>
+</section>

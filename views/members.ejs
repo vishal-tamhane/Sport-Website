@@ -1,0 +1,199 @@
+<%- include('./partials/header.ejs'); -%>
+
+<style>
+  body {
+    background-color: black;
+    color: white; 
+  }
+  .container-div {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .container-div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 40px rgba(233, 231, 220, 0.2);
+  }
+
+  .social-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .social-icon:hover {
+    transform: scale(1.2);
+    color: #007bff; /* Change to your desired hover color */
+  }
+
+  .bd-placeholder-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid white;
+  }
+
+  .bd-placeholder-img:hover {
+    transform: scale(0.95);
+    box-shadow: 0 18px 40px rgba(249, 248, 231, 0.3);
+  }
+
+  @media (max-width: 600px) {
+    .row .col-sm-12 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    .bd-placeholder-img {
+      width: 120px;
+      height: 120px;
+    }
+    .col-sm-12 {
+      padding: 10px;
+    }
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #007bff;
+  }
+</style>
+
+<div class="container">
+  <!-- Faculty Members Section -->
+  <h2 class="section-title">Faculty Members</h2>
+  <div class="row justify-content-center">
+    <% facultyMembers.forEach(member => { %>
+      <div class="col-lg-4 col-md-6 col-sm-12 p-4 container-div">
+        <div class="p-3" style="border: 1px solid rgb(234, 230, 230); border-radius: 20px;">
+          <div class="d-flex justify-content-center mb-3">
+            <% if (member.image_url) { %>
+              <img class="bd-placeholder-img rounded-circle fa-border" width="180" height="180" src="<%= member.image_url %>" alt="<%= member.name %>">
+            <% } else { %>
+              <svg class="bd-placeholder-img rounded-circle" width="180" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
+              </svg>
+            <% } %>
+          </div>
+
+          <h2 class="fw-normal text-center fs-4 fs-md-3 fs-lg-2"><%= member.name %></h2>
+          <p class="text-center fs-6 fs-md-5 fs-lg-4"><%= member.position %></p>
+          <p class="text-center">
+            <% if (member.instagram_url) { %>
+              <a href="<%= member.instagram_url %>" target="_blank" class="social-icon me-3" style="color: inherit;">
+                <i class="fa-brands fa-square-instagram fa-2x"></i>
+              </a>
+            <% } %>
+            <% if (member.email) { %>
+              <a href="mailto:<%= member.email %>" class="social-icon" style="color: inherit;">
+                <i class="fa-solid fa-envelope fa-2x"></i>
+              </a>
+            <% } %>
+          </p>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+
+  <!-- Core Members Section -->
+  <h2 class="section-title">Core Members</h2>
+  <div class="row justify-content-center">
+    <% coreMembers.forEach(member => { %>
+      <div class="col-lg-4 col-md-6 col-sm-12 p-4 container-div">
+        <div class="p-3" style="border: 1px solid rgb(234, 230, 230); border-radius: 20px;">
+          <div class="d-flex justify-content-center mb-3">
+            <% if (member.image_url) { %>
+              <img class="bd-placeholder-img rounded-circle fa-border" width="180" height="180" src="<%= member.image_url %>" alt="<%= member.name %>">
+            <% } else { %>
+              <svg class="bd-placeholder-img rounded-circle" width="180" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
+              </svg>
+            <% } %>
+          </div>
+
+          <h2 class="fw-normal text-center fs-4 fs-md-3 fs-lg-2"><%= member.name %></h2>
+          <p class="text-center fs-6 fs-md-5 fs-lg-4"><%= member.position %></p>
+          <p class="text-center">
+            <% if (member.instagram_url) { %>
+              <a href="<%= member.instagram_url %>" target="_blank" class="social-icon me-3" style="color: inherit;">
+                <i class="fa-brands fa-square-instagram fa-2x"></i>
+              </a>
+            <% } %>
+            <% if (member.email) { %>
+              <a href="mailto:<%= member.email %>" class="social-icon" style="color: inherit;">
+                <i class="fa-solid fa-envelope fa-2x"></i>
+              </a>
+            <% } %>
+          </p>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+
+  <!-- All Team Members Section -->
+  <h2 class="section-title">All Team Members</h2>
+  <div class="row justify-content-center">
+    <% teamMembers.forEach(member => { %>
+      <div class="col-lg-4 col-md-6 col-sm-12 p-4 container-div">
+        <div class="p-3" style="border: 1px solid rgb(234, 230, 230); border-radius: 20px;">
+          <div class="d-flex justify-content-center mb-3">
+            <% if (member.image_url) { %>
+              <img class="bd-placeholder-img rounded-circle fa-border" width="180" height="180" src="<%= member.image_url %>" alt="<%= member.name %>">
+            <% } else { %>
+              <svg class="bd-placeholder-img rounded-circle" width="180" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
+              </svg>
+            <% } %>
+          </div>
+
+          <h2 class="fw-normal text-center fs-4 fs-md-3 fs-lg-2"><%= member.name %></h2>
+          <p class="text-center fs-6 fs-md-5 fs-lg-4"><%= member.position %></p>
+          <p class="text-center">
+            <% if (member.instagram_url) { %>
+              <a href="<%= member.instagram_url %>" target="_blank" class="social-icon me-3" style="color: inherit;">
+                <i class="fa-brands fa-square-instagram fa-2x"></i>
+              </a>
+            <% } %>
+            <% if (member.email) { %>
+              <a href="mailto:<%= member.email %>" class="social-icon" style="color: inherit;">
+                <i class="fa-solid fa-envelope fa-2x"></i>
+              </a>
+            <% } %>
+          </p>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+  <!-- <div class="row justify-content-center">
+    <% teamMembers.forEach(member => { %>
+      <div class="col-lg-4 col-md-6 col-sm-12 p-4 container-div">
+        <div class="p-3" style="border: 1px solid rgb(234, 230, 230); border-radius: 20px;">
+          <div class="d-flex justify-content-center mb-3">
+            <% if (member.image_url) { %>
+              <img class="bd-placeholder-img rounded-circle fa-border" width="180" height="180" src="<%= member.image_url %>" alt="<%= member.name %>">
+            <% } else { %>
+              <svg class="bd-placeholder-img rounded-circle" width="180" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
+              </svg>
+            <% } %>
+          </div>
+
+          <h2 class="fw-normal text-center fs-4 fs-md-3 fs-lg-2"><%= member.name %></h2>
+          <p class="text-center fs-6 fs-md-5 fs-lg-4"><%= member.position %></p>
+          <p class="text-center">
+            <% if (member.instagram_url) { %>
+              <a href="<%= member.instagram_url %>" target="_blank" class="social-icon me-3" style="color: inherit;">
+                <i class="fa-brands fa-square-instagram fa-2x"></i>
+              </a>
+            <% } %>
+            <% if (member.email) { %>
+              <a href="mailto:<%= member.email %>" class="social-icon" style="color: inherit;">
+                <i class="fa-solid fa-envelope fa-2x"></i>
+              </a>
+            <% } %>
+          </p>
+        </div>
+      </div>
+    <% }); %>
+  </div> -->
+</div>
+
+<%- include('./partials/footer.ejs'); -%>

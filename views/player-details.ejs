@@ -1,0 +1,64 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .player-details-container {
+    max-width: 800px;
+    margin: 5rem auto;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    position: relative;
+  }
+  .div-container {
+    margin-left: 3rem;
+  }
+  .player-details-container .field {
+    margin-bottom: 1rem;
+  }
+
+  .player-photo-container {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 200px; /* Set the desired width */
+    height: 200px; /* Set the desired height */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .player-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container */
+  }
+
+  .adhar-card-photo {
+    max-width: 100%;
+    max-height: 50vh; /* Ensures the image does not take more than half the page height */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+</style>
+
+<div class="player-details-container">
+  <h1>Player Details</h1>
+  <div class="div-container">
+    <div class="field"><span>Name:</span> <%= name %></div>
+    <div class="field"><span>Date of Birth:</span> <%= new Date(dob).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }) %></div>
+    <div class="field"><span>PRN Number:</span> <%= prn_number %></div>
+    <div class="field"><span>Eligibility Number:</span> <%= eligibility_number %></div>
+    <div class="field"><span>Sport:</span> <%= sport %></div>
+  </div>
+  <h2>Documents</h2>
+  <div class="field"><span>Aadhar Card Photo:</span> <img class="adhar-card-photo" src="data:image/png;base64,<%= adhar_card_photo %>"></div>
+  <div class="player-photo-container">
+    <img src="data:image/png;base64,<%= photo %>" alt="Player Photo">
+  </div>
+  <button onclick="window.print()">Print</button>
+</div>

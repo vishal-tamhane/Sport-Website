@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Splash Screen</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000; /* Ensure it stays on top */
+      transition: transform 2s ease, opacity 2s ease; /* Smooth slide-out and fade-out */
+    }
+
+    #splash-screen.hidden {
+      transform: translateX(100%); /* Move the splash screen to the right */
+      opacity: 0; /* Gradually fade out */
+    }
+
+    #video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="splash-screen">
+    <video id="video" autoplay muted playsinline>
+      <source src="/assets/photos/3192198-uhd_3840_2160_25fps.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <script>
+    const video = document.getElementById("video");
+    const splashScreen = document.getElementById("splash-screen");
+
+    // Add a skip button
+    const skipButton = document.createElement("button");
+    skipButton.textContent = "Skip";
+    skipButton.style =
+      "position: absolute; top: 10px; right: 10px; z-index: 1000; padding: 10px; background: white; border: none; cursor: pointer; font-size: 14px;";
+    skipButton.onclick = () => transitionToHome();
+    document.body.appendChild(skipButton);
+
+    // Function to transition to home
+    const transitionToHome = () => {
+      splashScreen.classList.add("hidden"); // Trigger slide-right and fade-out effect
+      setTimeout(() => {
+        window.location.href = "/home"; // Redirect after transition
+      }, 2000); // Match the CSS transition duration (2s)
+    };
+
+    // Redirect to home after the video ends
+    video.onended = transitionToHome;
+  </script>
+</body>
+
+</html>

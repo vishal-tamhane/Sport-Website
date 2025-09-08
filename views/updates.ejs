@@ -1,0 +1,139 @@
+<%- include('./partials/header.ejs'); -%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      margin-top: 5rem;
+      padding: 0;
+      background-color: #121212; 
+      color: aqua; /* Aqua text color for light theme */
+    }
+    h1 {
+      color: #fdfdfd;
+      text-align: center;
+      margin-top: 5rem;
+      text-shadow: #ddd 0 0 10px;
+    }
+    .leaderboard {
+      max-width: 800px;
+      margin: 2rem auto;
+      border-collapse: collapse;
+      box-shadow: rgb(237, 242, 242) 0 0 20px;
+      width: 100%;
+      text-align: left;
+    }
+    .leaderboard th, .leaderboard td {
+      padding: 0.5rem;
+      color: #ddd;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    .leaderboard th {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+    }
+    .leaderboard tr:nth-child(even) {
+      background-color: #444;
+      color: #fff;
+      text-align: center;
+    }
+    .leaderboard tr:hover {
+      background-color: #333;
+      transform: scale(1.05);
+      box-shadow: aqua 0 0 20px;
+    }
+   
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+    .photo-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: 1s;
+    }
+    .photo-grid img:hover {
+      transform: scale(1.05);
+    }
+    @media (max-width: 600px) {
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Champion Board</h1>
+  <table class="leaderboard">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Department</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Computer Science</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Mechanical</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Civil</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Civil</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Civil</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Civil</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Civil</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Civil</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h1>What's Happening Today</h1>
+  <div class="photo-grid">
+    <img src="/uploads/c.jpg" alt="Photo 1">
+    <img src="/uploads/a.jpg" alt="Photo 2">
+    <img src="/uploads/i.jpg" alt="Photo 3">
+    <img src="/uploads/h.jpg" alt="Photo 4">
+  </div>
+</body>
+</html>
