@@ -1,0 +1,57 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss";
+
+/* Custom base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #fff;
+  background-color: #020e18;
+  font-family: 'Roboto Slab', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Slab', serif;
+}
+
+/* Custom utility classes */
+.nav-link {
+  position: relative;
+  color: rgb(147, 197, 253);
+  text-decoration: none;
+  font-size: 1.125rem;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background-color: rgb(107, 114, 128);
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: all 0.3s ease;
+}
+
+.subtitle {
+  font-size: 3rem;
+  font-weight: 500;
+  font-family: serif;
+  color: #0c0c0c;
+  margin: 2rem 5rem;
+  padding-left: 0.25rem;
+}
+
+@media (max-width: 600px) {
+  .subtitle {
+    font-size: 1.875rem;
+    margin: 0.125rem 2rem;
+    padding-left: 0.125rem;
+  }
+}
