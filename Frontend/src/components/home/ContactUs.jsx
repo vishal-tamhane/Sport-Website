@@ -9,9 +9,9 @@ const ContactUs = () => {
     message: ''
   });
 
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
+  const [formErrors, setFormErrors] =useState({});
+  const [isSubmitting, setIsSubmitting] =useState(false);
+  const [submitStatus, setSubmitStatus] =useState(null);
   const [focused, setFocused] = useState({});
 
   const handleChange = (e) => {
