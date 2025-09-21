@@ -19,22 +19,30 @@ h1, h2, h3, h4, h5, h6 {
 /* Custom utility classes */
 .nav-link {
   position: relative;
-  color: rgb(147, 197, 253);
+  color: rgb(24, 243, 255);
+  
   text-decoration: none;
   font-size: 1.125rem;
-  display: inline-block;  /* 👈 Add this */
+  display: inline-block; 
   padding: 0 2px; 
 }
 
 .nav-link:hover::after {
   width: 100%;
+  color: #0c0c0c;
+}
+
+.nav-link:hover {
+  color: #0c0c0c;  
+  font-size: 1.12rem;
 }
 
 .nav-link::after {
   content: '';
   width: 0;
+  color: #0c0c0c;
   height: 3px;
-  background-color: rgb(107, 114, 128);
+  background-color: rgb(0, 0, 0);
   position: absolute;
   left: 0;
   bottom: -6px;
