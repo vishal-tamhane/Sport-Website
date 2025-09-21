@@ -8,11 +8,13 @@
 #root {
   width: 100%;
   margin: 0 auto;
+  color: black;
   text-align: center;
 }
 
 body {
   /* padding-top: 70px; */
+  color: black;
   font-family: 'Roboto Slab', serif;
 }
 

@@ -35,7 +35,7 @@ const Header = () => {
   return (
     <div id="header" className="pb-1 mb-1">
       <nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-[1000] transition-all duration-600 rounded-xl backdrop-blur-md ${
+        className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-[1000] transition-all duration-600 rounded-xl backdrop-blur-md flex items-center ${
           scrolled ? "bg-white/90 shadow-lg py-2" : "bg-white/80 py-4"
         }`}
       >
@@ -73,7 +73,7 @@ const Header = () => {
                 </li>
                 <li>
                   <Link
-                    to="/login"
+                    to="/Registration"
                     className="nav-link text-lg font-medium text-[#017979] hover:text-black transition-colors"
                   >
                     Registration
