@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
 const ContactUs = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] =useState({
     name: '',
     email: '',
     phone: '',
-    subject: '',
-    message: ''
+    subject:'',
+    message:''
   });
 
   const [formErrors, setFormErrors] =useState({});
@@ -37,8 +37,8 @@ const ContactUs = () => {
     }));
   };
 
-  const handleBlur = (field) => {
-    setFocused(prev => ({
+  const handleBlur =(field) => {
+    setFocused(prev =>({
       ...prev,
       [field]: false
     }));
