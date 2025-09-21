@@ -172,7 +172,7 @@ const ContactUs = () => {
   }, [formErrors]);
 
   return (
-    <section id="contact" className="py-16 mt-5 bg-gray-50">
+    <section id="contact" className="py-16 mt-5 mb-4 bg-gray-50">
       <div className="container mx-auto px-4 border-t-4 border-black">
         <div className="mb-12">
           <h2 className="text-4xl font-extrabold text-center text-black tracking-tight">

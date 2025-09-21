@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#017979] text-white py-6">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 py-4 my-4 items-start md:items-center min-h-[250px] md:min-h-[200px]">
+    <footer className="bg-[#017979] text-white mt-auto">
+      <div className="container mx-auto px-4 pb-0">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 pt-8 items-start">
           {/* Logo and Institute Name - Full width on small screens */}
-          <div className="col-span-2 md:col-span-1 flex flex-col justify-center items-center mb-4 md:mb-0 h-full">
+          <div className="col-span-2 md:col-span-1 flex flex-col justify-center items-center mb-4 md:mb-0">
             <Link to="/" className="flex items-center justify-center mb-3 text-body-emphasis no-underline">
-              <img src="/assets/photos/parakram_logo.png" alt="logo" className="w-32 md:w-40 h-auto mb-2 md:mb-4" />
+              <img src="/assets/photos/parakram_logo.png" alt="logo" className="w-32 md:w-40 h-auto m-4 md:mb-4" />
             </Link>
             <p className="text-[#7fe40b] text-base md:text-xl font-medium font-['Times_New_Roman'] text-center">
               Dr D Y Patil Institute of Technology Pimpri, Pune.
@@ -21,7 +21,7 @@ const Footer = () => {
           </div>
           
           {/* Empty column - Hidden on small screens */}
-          <div className="hidden md:flex md:col-span-1 items-center justify-center h-full"></div>
+          <div className="hidden md:block md:col-span-1"></div>
           
           {/* Indoor Games - Half width on small screens */}
           <div className="flex flex-col md:justify-center h-full">
@@ -57,7 +57,9 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <p className="text-center text-[#f4f4f4] text-sm mt-4">© 2025 Your Company. All rights reserved.</p>
+        <div className="border-t border-white/10 mt-4">
+          <p className="text-center text-[#f4f4f4] text-sm py-4 mb-0">© 2025 PARAKRAM Sports Club. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   );
