@@ -33,10 +33,10 @@ const Header = () => {
   }, [location]);
 
   return (
-    <div id="header" className="h-24">
+    <div id="header" className="h-28">
       <nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-[1000] transition-all duration-600 rounded-xl backdrop-blur-md flex items-center ${
-          scrolled ? "bg-white/90 shadow-lg py-2" : "bg-white/80 py-4"
+        className={`fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-[1000] transition-all duration-300 rounded-xl backdrop-blur-md flex items-center py-6 ${
+          scrolled ? "bg-white/95 shadow-lg" : "bg-white/90"
         }`}
       >
         <div className="container mx-auto px-6">
@@ -45,7 +45,7 @@ const Header = () => {
             <Link to="/" className="no-underline">
               <p
                 className={`transition-all duration-300 ${
-                  scrolled ? "text-3xl" : "text-4xl"
+                  scrolled ? "text-3xl" : "text-3xl"
                 } font-medium text-[#103d01] font-['Trebuchet_MS',_'Lucida_Sans_Unicode',_'Lucida_Grande',_'Lucida_Sans',_Arial,_sans-serif]`}
               >
                 SPORT Club
