@@ -106,7 +106,7 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white pt-20 pb-16 px-4 sm:px-6 lg:px-8 mt-10">
       <div className="max-w-4xl mx-auto shadow-lg rounded-3xl bg-white p-10">
         <h2 className="text-4xl font-extrabold text-center text-blue-700 mb-10 tracking-wide">
           Sport Club Registration
